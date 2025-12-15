@@ -1,0 +1,419 @@
+/* ===================================
+   CYBERPUNK/Y2K TERMINAL AESTHETIC
+   ================================== */
+
+   :root {
+    --terminal-green: #00ff41;
+    --matrix-green: #008f11;
+    --cyber-blue: #00d9ff;
+    --dark-bg: #0a0e27;
+    --darker-bg: #000000;
+    --warning-red: #ff0040;
+    --text-dim: #4af626;
+    --border-color: #00ff41;
+    --emerald-color: #4FC978;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', 'Consolas', monospace;
+    background: var(--darker-bg);
+    color: var(--emerald-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ===================================
+   CRT SCREEN EFFECTS
+   ================================== */
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 999;
+}
+
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+    z-index: 998;
+}
+
+/* ===================================
+   HEADER & NAVIGATION
+   ================================== */
+
+.terminal-header {
+    background: var(--dark-bg);
+    border-bottom: 2px solid var(--warning-red);
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.ascii-logo {
+    color: var(--cyber-blue);
+    font-size: 8px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--emerald-color);
+}
+
+.terminal-prompt {
+    text-align: center;
+    font-size: 18px;
+    margin: 15px 0;
+    color: var(--emerald-color);
+}
+
+.prompt-user {
+    color: var(--emerald-color);
+}
+
+.prompt-path {
+    color: var(--warning-red);
+}
+
+.typing-text {
+    color: var(--emerald-color);
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    color: var(--emerald-color);
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+.terminal-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.terminal-nav a {
+    color: var(--emerald-color);
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid var(--warning-red);
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: bold;
+}
+
+.terminal-nav a:hover,
+.terminal-nav a.active {
+    background: var(--emerald-color);
+    color: var(--darker-bg);
+    box-shadow: 0 0 15px var(--emerald-color);
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   MAIN CONTAINER
+   ================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 30px;
+}
+
+/* ===================================
+   POSTS SECTION
+   ================================== */
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--warning-red);
+}
+
+.section-header h2 {
+    color: var(--emerald-color);
+    font-size: 24px;
+    text-shadow: 0 0 10px var(--emerald-color);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.blink {
+    color: var(--emerald-color);
+    animation: blink 1.5s infinite;
+}
+
+.posts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.post-card {
+    background: rgba(10, 14, 39, 0.7);
+    border: 1px solid var(--warning-red);
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.post-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--emerald-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateX(5px);
+    box-shadow: -5px 5px 0 var(--emerald-color);
+}
+
+.post-card:hover::before {
+    opacity: 1;
+}
+
+.post-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.category {
+    padding: 3px 10px;
+    border: 1px solid;
+    font-weight: bold;
+}
+
+.category[data-cat="tech"] {
+    color: var(--emerald-color);
+    border-color: var(--emerald-color);
+}
+
+.category[data-cat="security"] {
+    color: var(--warning-red);
+    border-color: var(--warning-red);
+}
+
+.category[data-cat="thoughts"] {
+    color: var(--emerald-color);
+    border-color: var(--emerald-color);
+}
+
+.date {
+    color: var(--warning-red);
+}
+
+.post-card h3 {
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.post-card h3 a {
+    color: var(--emerald-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.post-card h3 a:hover {
+    color: var(--emerald-color);
+    text-shadow: 0 0 10px var(--emerald-color);
+}
+
+.post-excerpt {
+    color: var(--warning-red);
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.read-more {
+    color: var(--emerald-color);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px dashed var(--emerald-color);
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--emerald-color);
+    border-color: var(--emerald-color);
+}
+
+/* ===================================
+   SIDEBAR
+   ================================== */
+
+.terminal-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.widget {
+    background: rgba(10, 14, 39, 0.7);
+    border: 1px solid var(--warning-red);
+    padding: 20px;
+}
+
+.widget h3 {
+    color: var(--emerald-color);
+    margin-bottom: 15px;
+    font-size: 16px;
+    text-shadow: 0 0 5px var(--emerald-color);
+}
+
+.system-stats {
+    color: var(--emerald-color);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.category-list {
+    list-style: none;
+}
+
+.category-list li {
+    margin-bottom: 10px;
+}
+
+.category-list a {
+    color: var(--emerald-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-list a:hover {
+    color: var(--emerald-color);
+    padding-left: 10px;
+}
+
+.count {
+    color: var(--warning-red);
+}
+
+/* ===================================
+   FOOTER
+   ================================== */
+
+.terminal-footer {
+    background: var(--dark-bg);
+    border-top: 2px solid var(--warning-red);
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 60px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.footer-art {
+    color: var(--emerald-color);
+    font-size: 10px;
+    margin-bottom: 15px;
+}
+
+.terminal-footer p {
+    color: var(--warning-red);
+    font-size: 12px;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   ================================== */
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .terminal-sidebar {
+        order: -1;
+    }
+    
+    .ascii-logo {
+        font-size: 6px;
+    }
+    
+    .terminal-nav {
+        font-size: 14px;
+        gap: 10px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* ===================================
+   GLITCH EFFECT (OPTIONAL)
+   ================================== */
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+.post-card:hover h3 a {
+    animation: glitch 0.3s ease;
+}

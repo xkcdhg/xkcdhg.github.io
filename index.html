@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL://BLOG.sys</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="crt-overlay"></div>
+    
+    <header class="terminal-header">
+        <pre class="ascii-logo">
+ ▄▄▄▄▄▄▄▄▄▄▄  ▄            ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░░▌▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░█▀▀▀▀▀▀▀█░▌▐░▌          ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ 
+▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌▐░▌          
+▐░█▄▄▄▄▄▄▄█░▌▐░▌          ▐░▌       ▐░▌▐░▌ ▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░░▌▐░▌          ▐░▌       ▐░▌▐░▌▐░░░░░░░░▌
+▐░█▀▀▀▀▀▀▀█░▌▐░▌          ▐░▌       ▐░▌▐░▌ ▀▀▀▀▀▀█░▌
+▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌▐░▌       ▐░▌
+▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌
+▐░█▄▄▄▄▄▄▄█░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+ ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀ 
+        </pre>
+        <div class="terminal-prompt">
+            <span class="prompt-user">root@system</span>:<span class="prompt-path">~</span>$ <span class="typing-text">cat blog.txt</span><span class="cursor">_</span>
+        </div>
+        <nav class="terminal-nav">
+            <a href="/" class="active">[HOME]</a>
+            <a href="posts/tech/">[TECH]</a>
+            <a href="posts/security/">[SECURITY]</a>
+            <a href="posts/thoughts/">[THOUGHTS]</a>
+            <a href="about.html">[ABOUT]</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="posts-grid">
+            <div class="section-header">
+                <h2>&gt;&gt; RECENT_TRANSMISSIONS</h2>
+                <div class="status-indicator">
+                    <span class="blink">●</span> ALIVE
+                </div>
+            </div>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="category" data-cat="tech">[TECH]</span>
+                    <span class="date">2025.01.15</span>
+                </div>
+                <h3><a href="posts/tech/getting-started.html">WOAH</a></h3>
+                <p class="post-excerpt">
+                    blablabla
+                </p>
+                <a href="posts/tech/getting-started.html" class="read-more">[READ_MORE] →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="category" data-cat="security">[SECURITY]</span>
+                    <span class="date">2025.01.10</span>
+                </div>
+                <h3><a href="posts/security/example-post.html">BIG QUESTIONS?</a></h3>
+                <p class="post-excerpt">
+                    blablabla
+                </p>
+                <a href="posts/security/example-post.html" class="read-more">[READ_MORE] →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="category" data-cat="thoughts">[THOUGHTS]</span>
+                    <span class="date">2025.01.05</span>
+                </div>
+                <h3><a href="posts/thoughts/example-post.html">The BLABLA LAND</a></h3>
+                <p class="post-excerpt">
+                    blablabla
+                </p>
+                <a href="posts/thoughts/example-post.html" class="read-more">[READ_MORE] →</a>
+            </article>
+        </section>
+
+        <aside class="terminal-sidebar">
+            <div class="widget">
+                <h3>&gt; SYSTEM_INFO</h3>
+                <pre class="system-stats">
+STATUS: OPERATIONAL
+UPTIME: 99.7%
+POSTS: 03
+THREATS: 00
+LAST_UPDATE: 2025.01.15
+                </pre>
+            </div>
+
+            <div class="widget">
+                <h3>&gt; CATEGORIES</h3>
+                <ul class="category-list">
+                    <li><a href="posts/tech/">&gt; tech <span class="count">[3]</span></a></li>
+                    <li><a href="posts/security/">&gt; security <span class="count">[2]</span></a></li>
+                    <li><a href="posts/thoughts/">&gt; thoughts <span class="count">[1]</span></a></li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="terminal-footer">
+        <pre class="footer-art">
+═══════════════════════════════════════════════════════
+ [ENCRYPTED_CONNECTION] | [IPv6_ENABLED] | [TOR_READY]
+═══════════════════════════════════════════════════════
+        </pre>
+        <p>&copy; 2025 TERMINAL://BLOG.sys | ALL SYSTEMS OPERATIONAL</p>
+    </footer>
+
+    <script src="js/effects.js"></script>
+</body>
+</html>

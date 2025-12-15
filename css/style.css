@@ -228,17 +228,17 @@ body {
     font-weight: bold;
 }
 
-.category[data-cat="tech"] {
+.category[data-cat="ears"] {
     color: var(--emerald-color);
     border-color: var(--emerald-color);
 }
 
-.category[data-cat="security"] {
+.category[data-cat="food"] {
     color: var(--warning-red);
     border-color: var(--warning-red);
 }
 
-.category[data-cat="thoughts"] {
+.category[data-cat="war"] {
     color: var(--emerald-color);
     border-color: var(--emerald-color);
 }

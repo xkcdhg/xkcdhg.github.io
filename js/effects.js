@@ -157,3 +157,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Life timer
+const birthDate = new Date('2001-04-26T13:30:00+03:00');
+
+function updateLifeTimer() {
+    const now = new Date();
+    const diff = now - birthDate;
+    const totalHours = Math.floor(diff / (1000 * 60 * 60));
+    const totalMinutes = Math.floor(diff / (1000 * 60));
+    const totalSeconds = Math.floor(diff / 1000);
+
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    
+    if (hoursEl) hoursEl.textContent = totalHours.toLocaleString();
+    if (minutesEl) minutesEl.textContent = totalMinutes.toLocaleString();
+    if (secondsEl) secondsEl.textContent = totalSeconds.toLocaleString();
+}
+
+setInterval(updateLifeTimer, 1000);
+updateLifeTimer();

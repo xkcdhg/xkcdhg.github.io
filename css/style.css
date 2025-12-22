@@ -193,6 +193,7 @@ body {
     padding: 25px;
     transition: all 0.3s ease;
     position: relative;
+    
 }
 
 .post-card::before {
@@ -251,6 +252,10 @@ body {
 .post-card h3 {
     margin-bottom: 12px;
     font-size: 22px;
+    .post-card a {
+    position: relative;
+    z-index: 10;
+}
 }
 
 .post-card h3 a {

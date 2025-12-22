@@ -78,38 +78,6 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-// Glitch Text Effect on Hover
-function addGlitchEffect() {
-    const links = document.querySelectorAll('.post-card h3 a');
-    
-    links.forEach(link => {
-        link.addEventListener('mouseenter', function() {
-            const originalText = this.textContent;
-            let glitchInterval;
-            let iterations = 0;
-            
-            glitchInterval = setInterval(() => {
-                this.textContent = originalText
-                    .split('')
-                    .map((char, index) => {
-                        if (index < iterations) {
-                            return originalText[index];
-                        }
-                        return String.fromCharCode(33 + Math.floor(Math.random() * 94));
-                    })
-                    .join('');
-                
-                iterations += 2; // Much faster restoration
-                
-                if (iterations >= originalText.length) {
-                    clearInterval(glitchInterval);
-                    this.textContent = originalText;
-                }
-            }, 20); // Faster refresh rate
-        });
-    });
-}//
-
 // Console Boot Sequence
 function bootSequence() {
     console.log('%c[SYSTEM] Initializing...', 'color: #00ff41; font-family: monospace;');
@@ -123,16 +91,36 @@ function bootSequence() {
     }, 1000);
 }
 
+// Life timer
+const birthDate = new Date('2001-04-26T13:30:00+03:00');
+
+function updateLifeTimer() {
+    const now = new Date();
+    const diff = now - birthDate;
+    const totalHours = Math.floor(diff / (1000 * 60 * 60));
+    const totalMinutes = Math.floor(diff / (1000 * 60));
+    const totalSeconds = Math.floor(diff / 1000);
+
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    
+    if (hoursEl) hoursEl.textContent = totalHours.toLocaleString();
+    if (minutesEl) minutesEl.textContent = totalMinutes.toLocaleString();
+    if (secondsEl) secondsEl.textContent = totalSeconds.toLocaleString();
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     // Add CRT flicker
     addCRTFlicker();
     
-    // Add glitch effect to post titles
-    //addGlitchEffect();
-    
     // Boot sequence in console
     bootSequence();
+    
+    // Start life timer
+    setInterval(updateLifeTimer, 1000);
+    updateLifeTimer();
     
     // Optional: Uncomment to enable matrix rain background
     // createMatrixRain();

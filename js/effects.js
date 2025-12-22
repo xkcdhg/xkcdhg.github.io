@@ -108,7 +108,7 @@ function addGlitchEffect() {
             }, 20); // Faster refresh rate
         });
     });
-}
+}//
 
 // Console Boot Sequence
 function bootSequence() {
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
     addCRTFlicker();
     
     // Add glitch effect to post titles
-    addGlitchEffect();
+    //addGlitchEffect();
     
     // Boot sequence in console
     bootSequence();

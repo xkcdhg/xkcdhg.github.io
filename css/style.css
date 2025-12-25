@@ -52,7 +52,7 @@ body, * {
         transparent 1px,
         transparent 2px
     );
-    pointer-events: none;
+    
     z-index: 999;
 }
 

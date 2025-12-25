@@ -29,11 +29,7 @@ body {
     overflow-x: hidden;
     position: relative;
 }
-body, * {
-    user-select: text !important;
-    -webkit-user-select: text !important;
-    -moz-user-select: text !important;
-}
+
 
 /* ===================================
    CRT SCREEN EFFECTS
@@ -52,7 +48,7 @@ body, * {
         transparent 1px,
         transparent 2px
     );
-    
+    pointer-events: none;
     z-index: 999;
 }
 
@@ -159,6 +155,12 @@ body, * {
    POSTS SECTION
    ================================== */
 
+.post-content, .post-content p {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    cursor: text;
+}
 .section-header {
     display: flex;
     justify-content: space-between;
